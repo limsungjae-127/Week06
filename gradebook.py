@@ -38,9 +38,9 @@ class GradeBook:
         self.students.append(student)
 
     def class_average(self):
-        total = 0
-        for s in self.students:
-            total += s.average()
+        if not self.students:
+            return 0.0
+        total = sum(s.average() for s in self.students)
         return total / len(self.students)
 
 def main():
